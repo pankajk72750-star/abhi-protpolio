@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Abhishek Kumar Singh | BCA Student</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: #f4f7fb;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 25px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #00d4ff;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00d4ff;
+    }
+
+    /* ================= COMMON ================= */
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 25px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      margin-bottom: 40px;
+      color: #203a43;
+    }
+
+    /* ================= HOME ================= */
+
+    #home {
+      max-width: none;
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(15, 32, 39, 0.95),
+          rgba(0, 114, 255, 0.85)
+        );
+    }
+
+    .hero {
+      padding: 30px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: #00d4ff;
+    }
+
+    .hero h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #d9f8ff;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 28px;
+      margin: 5px;
+
+      border-radius: 30px;
+
+      background: #00d4ff;
+      color: #102a43;
+
+      text-decoration: none;
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: white;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about-box,
+    .contact-box {
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .about-box p {
+      font-size: 1.05rem;
+      margin-bottom: 15px;
+    }
+
+    /* ================= CARDS ================= */
+
+    .cards {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+
+      border-radius: 15px;
+
+      border-top: 4px solid #0072ff;
+
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0, 114, 255, 0.2);
+    }
+
+    .card h3 {
+      color: #0072ff;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin-bottom: 6px;
+    }
+
+    /* ================= SKILLS ================= */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .skill {
+      padding: 9px 18px;
+      border-radius: 20px;
+
+      background: linear-gradient(
+        90deg,
+        #0072ff,
+        #00c6ff
+      );
+
+      color: white;
+      font-weight: bold;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .project-links {
+      margin-top: 15px;
+    }
+
+    .project-links a {
+      color: #0072ff;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+
+    .project-links a:hover {
+      color: #00a6c7;
+      text-decoration: underline;
+    }
+
+    /* ================= PROFESSIONAL LINKS ================= */
+
+    .professional-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .professional-links a {
+      padding: 12px 22px;
+
+      border-radius: 25px;
+
+      background: #203a43;
+      color: white;
+
+      text-decoration: none;
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .professional-links a:hover {
+      background: #0072ff;
+      transform: translateY(-3px);
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact-box p {
+      margin: 12px 0;
+      font-size: 1.05rem;
+    }
+
+    .contact-box strong {
+      color: #0072ff;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      text-align: center;
+      padding: 25px;
+
+      background: #0f2027;
+      color: white;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 750px) {
+
+      nav {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      nav ul li a {
+        font-size: 0.9rem;
+      }
+
+      #home {
+        padding-top: 130px;
+      }
+
+      section {
+        padding-top: 110px;
+      }
+
+      .hero h1 {
+        font-size: 2.7rem;
+      }
+
+      .hero h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <header>
+    <nav>
+
+      <div class="logo">
+        Abhishek<span>.</span>
+      </div>
+
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#links">Links</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+
+  <!-- ================= HOME ================= -->
+
+  <section id="home">
+
+    <div class="hero">
+
+      <h1>
+        Hi, I'm <span>Abhishek Kumar Singh</span>
+      </h1>
+
+      <h2>
+        BCA Student | CSE & IT Enthusiast
+      </h2>
+
+      <p>
+        Passionate about Computer Science, Information Technology,
+        Web Development and Programming.
+      </p>
+
+      <a href="#about" class="btn">
+        About Me
+      </a>
+
+      <a href="#projects" class="btn">
+        View Projects
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ABOUT ================= -->
+
+  <section id="about">
+
+    <h2 class="section-title">
+      About Me
+    </h2>
+
+    <div class="about-box">
+
+      <p>
+        Hello! My name is <strong>Abhishek Kumar Singh</strong>.
+        I am a BCA student with a strong interest in Computer Science
+        and Information Technology.
+      </p>
+
+      <p>
+        I am interested in learning programming, web development,
+        software technologies and solving real-world problems using
+        technology.
+      </p>
+
+      <p>
+        My goal is to continuously improve my technical skills and
+        build useful and innovative software projects.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= EDUCATION ================= -->
+
+  <section id="education">
+
+    <h2 class="section-title">
+      Education / Qualification
+    </h2>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>Bachelor of Computer Applications (BCA)</h3>
+
+        <p>
+          <strong>Current Student</strong>
+        </p>
+
+        <p>
+          Computer Science & Information Technology
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Class 12th</h3>
+
+        <p>
+          <strong>DSBD Inter College</strong>
+        </p>
+
+        <p>
+          Higher Secondary Education
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Class 10th</h3>
+
+        <p>
+          <strong>GRPS Chapra</strong>
+        </p>
+
+        <p>
+          Secondary Education
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= SKILLS ================= -->
+
+  <section id="skills">
+
+    <h2 class="section-title">
+      My Skills
+    </h2>
+
+    <div class="about-box">
+
+      <p>
+        As a BCA student, I am developing my knowledge in
+        programming, web development and computer technologies.
+      </p>
+
+      <div class="skills">
+
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">C Programming</span>
+        <span class="skill">Python</span>
+        <span class="skill">Java</span>
+        <span class="skill">SQL</span>
+        <span class="skill">Git & GitHub</span>
+        <span class="skill">Web Development</span>
+        <span class="skill">Computer Fundamentals</span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PROJECTS ================= -->
+
+  <section id="projects">
+
+    <h2 class="section-title">
+      My Projects
+    </h2>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>Personal Portfolio Website</h3>
+
+        <p>
+          A responsive personal portfolio website created using
+          HTML and CSS to showcase my education, skills and projects.
+        </p>
+
+        <div class="project-links">
+          <a href="#">Live Demo</a>
+          <a href="#">GitHub</a>
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Student Management System</h3>
+
+        <p>
+          A student-focused project designed to manage student
+          information and academic records.
+        </p>
+
+        <div class="project-links">
+          <a href="#">View Project</a>
+          <a href="#">GitHub</a>
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Web Development Projects</h3>
+
+        <p>
+          Collection of practice projects developed while learning
+          HTML, CSS, JavaScript and programming concepts.
+        </p>
+
+        <div class="project-links">
+          <a href="#">View Projects</a>
+          <a href="#">GitHub</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= RESUME ================= -->
+
+  <section id="resume">
+
+    <h2 class="section-title">
+      Resume
+    </h2>
+
+    <div class="about-box" style="text-align:center;">
+
+      <p>
+        Download my resume to learn more about my education,
+        skills and academic projects.
+      </p>
+
+      <br>
+
+      <!-- Put your resume PDF in the same folder -->
+      <a href="resume.pdf" class="btn" download>
+        Download Resume
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PROFESSIONAL LINKS ================= -->
+
+  <section id="links">
+
+    <h2 class="section-title">
+      Professional Links
+    </h2>
+
+    <div class="professional-links">
+
+      <a href="#" target="_blank">
+        LinkedIn
+      </a>
+
+      <a href="#" target="_blank">
+        GitHub
+      </a>
+
+      <a href="#" target="_blank">
+        LeetCode
+      </a>
+
+      <a href="#" target="_blank">
+        HackerRank
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CONTACT ================= -->
+
+  <section id="contact">
+
+    <h2 class="section-title">
+      Contact Me
+    </h2>
+
+    <div class="contact-box">
+
+      <p>
+        <strong>Name:</strong>
+        Abhishek Kumar Singh
+      </p>
+
+      <p>
+        <strong>Phone:</strong>
+        604577412
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        abhisheksingh6204577@gmail.com
+      </p>
+
+      <p>
+        <strong>Education:</strong>
+        BCA Student
+      </p>
+
+      <p>
+        I am open to learning opportunities, internships,
+        academic projects and collaborations related to
+        Computer Science and Information Technology.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <p>
+      © 2026 Abhishek Kumar Singh |
+      BCA Student | CSE & IT Enthusiast
+    </p>
+
+  </footer>
+
+</body>
+</html>
